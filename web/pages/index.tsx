@@ -1,11 +1,19 @@
-export default function Home() {
-  fetch("http://localhost:3333/pools/count")
-    .then(response => response.json())
-    .then(data => console.log(data))
-
+export default function Home(props) {
   return (
     <>
-      <p>Initial structure</p>
+      <p>Contagem: {props.count}</p>
     </>
   )
+}
+
+export const getServerSideProps = async () => {
+  const response = await fetch("http://localhost:3333/pools/count")
+  const data = await response.json()
+  console.log(data)
+
+  return {
+    props: {
+      count: data.count
+    }
+  }
 }
