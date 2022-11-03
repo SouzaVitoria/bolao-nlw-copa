@@ -1,7 +1,7 @@
 export default function Home(props: HomeProps) {
   return (
     <>
-      <p>Contagem: {props.count}</p>
+      <p className="text-violet-700">Contagem: {props.count}</p>
     </>
   )
 }

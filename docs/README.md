@@ -116,6 +116,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - Tailwind CSS IntelliSense
 - Prisma
 - Rest Client / Insomnia / Postman
+- PostCSS
 
 ## ✨ Deploies
 
