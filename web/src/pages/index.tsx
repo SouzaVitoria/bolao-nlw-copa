@@ -79,7 +79,7 @@ export default function Home(props: HomeProps) {
 }
 
 export const getServerSideProps = async () => {
-  const poolCountResponse = await api.get("http://localhost:3333/pools/count")
+  const poolCountResponse = await api.get("pools/count")
 
   return {
     props: {
