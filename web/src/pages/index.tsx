@@ -1,3 +1,4 @@
+import { api } from '../lib/axios'
 import Image from 'next/image'
 import appPreviewImg from "../assets/app-nlw-copa-preview.png"
 import logoImg from "../assets/logo.svg"
@@ -78,12 +79,11 @@ export default function Home(props: HomeProps) {
 }
 
 export const getServerSideProps = async () => {
-  const response = await fetch("http://localhost:3333/pools/count")
-  const data = await response.json()
+  const poolCountResponse = await api.get("http://localhost:3333/pools/count")
 
   return {
     props: {
-      poolCount: data.count
+      poolCount: poolCountResponse.data.count
     }
   }
 }
