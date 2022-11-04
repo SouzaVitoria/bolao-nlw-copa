@@ -24,7 +24,7 @@ export default function Home(props: HomeProps) {
             alt=""
           />
           <strong className="text-gray-100 text-xl">
-            <span className="text-ignite-500">+12.592</span> pessoas já estão usando
+            <span className="text-ignite-500">+{props.userCount}</span> pessoas já estão usando
           </strong>
         </div>
 
@@ -64,7 +64,7 @@ export default function Home(props: HomeProps) {
               alt=""
             />
             <div className="flex flex-col">
-              <span className="font-bold text-2xl"> +192.847 </span>
+              <span className="font-bold text-2xl"> +{props.guessCount} </span>
               <span> Palpites enviados </span>
             </div>
           </div>
@@ -79,11 +79,17 @@ export default function Home(props: HomeProps) {
 }
 
 export const getServerSideProps = async () => {
-  const poolCountResponse = await api.get("pools/count")
+  const [poolCountResponse, guessCountResponse, userCountResponse] = await Promise.all([
+    api.get("pools/count"),
+    api.get("guesses/count"),
+    api.get("users/count")
+  ])
 
   return {
     props: {
-      poolCount: poolCountResponse.data.count
+      poolCount: poolCountResponse.data.count,
+      guessCount: guessCountResponse.data.count,
+      userCount: userCountResponse.data.count
     }
   }
 }
