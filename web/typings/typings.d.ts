@@ -1,3 +1,3 @@
 interface HomeProps {
-  count: number
+  poolCount: number
 }

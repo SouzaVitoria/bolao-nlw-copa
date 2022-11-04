@@ -52,7 +52,7 @@ export default function Home(props: HomeProps) {
               alt=""
             />
             <div className="flex flex-col">
-              <span className="font-bold text-2xl"> +192.847 </span>
+              <span className="font-bold text-2xl"> +{props.poolCount} </span>
               <span> Bolões criados </span>
             </div>
           </div>
@@ -64,7 +64,7 @@ export default function Home(props: HomeProps) {
             />
             <div className="flex flex-col">
               <span className="font-bold text-2xl"> +192.847 </span>
-              <span> Bolões criados </span>
+              <span> Palpites enviados </span>
             </div>
           </div>
         </div>
@@ -80,11 +80,10 @@ export default function Home(props: HomeProps) {
 export const getServerSideProps = async () => {
   const response = await fetch("http://localhost:3333/pools/count")
   const data = await response.json()
-  console.log(data)
 
   return {
     props: {
-      count: data.count
+      poolCount: data.count
     }
   }
 }
