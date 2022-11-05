@@ -93,10 +93,6 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
   - `expo-app-loading` é para verificar se as aplicações estão carregando as fontes
 
-- **Ícones:** (`phosphor-react-native`)
-
-  - **SVG:** `react-native-svg`
-
 - **Espaçamento nos Iphones:** `react-native-iphone-x-helper`
 
 - **Gestos:** (`bottom-sheet`)
@@ -105,7 +101,13 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 - **Tirar print da tela (Screenshot):** `react-native-view-shot`
 
-- **Conversão de arquivo:** (`expo-file-system`) as imagens precisam ser gravadas no DB com a base64 e não apenas a uri (_uri é ó endereço onde a imagem está armazenada de forma temporária no dispositivo_), por isso precisa passar as imagens para a base64 e envia-las para o BD.
+- **OAuth Google**:
+  - Instalar o `expo-auth-session` e `expo-web-browser`
+  - Configurar o OAuth com Google (https://console.cloud.google.com/)
+    1. Crie um projeto
+    2. API's e serviços > Tela de permissão OAuth
+       - Adicionar espocos
+    3. API's e serviços > Credenciais > Criar ID do cliente do OAuth
 
 ---
 
